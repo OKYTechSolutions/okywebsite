@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — OKY Tech</title>
+  <meta name="description"
+    content="OKY Tech builds Shopify apps, high‑performance websites, and smart testing systems." />
+  <link rel="icon" href="assets/image/logo.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* -------- Page-scoped enhancements (uses your tokens) -------- */
+    :root {
+      --pin-top: 84px
+    }
+
+    .eyebrow-compact {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .kicker {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-weight: 800
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .value {
+      grid-column: span 4;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    .value h3 {
+      margin: 0 0 4px
+    }
+
+    .value .muted {
+      min-height: 3lh
+    }
+
+    .stat {
+      font-weight: 900;
+      font-size: clamp(36px, 5.5vw, 60px)
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #fff
+    }
+
+    .slab {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow)
+    }
+
+    .code-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      overflow: auto
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      background: #fff
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .principles .card {
+      grid-column: span 6
+    }
+
+    .os-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .os-grid .step {
+      grid-column: span 4;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px
+    }
+
+    .timeline-simple {
+      border-left: 2px solid var(--line);
+      padding-left: 14px;
+      display: grid;
+      gap: 10px
+    }
+
+    .timeline-simple .item {
+      position: relative
+    }
+
+    .timeline-simple .item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: .4lh;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--ink)
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .member {
+      grid-column: span 4;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px
+    }
+
+    .member h4 {
+      margin: 0 0 4px
+    }
+
+    .quote {
+      font-size: clamp(18px, 2.6vw, 22px);
+      line-height: 1.4;
+      border-left: 3px solid var(--ink);
+      padding-left: 12px
+    }
+
+    @media (max-width:980px) {
+      .value {
+        grid-column: span 12
+      }
+
+      .principles .card {
+        grid-column: span 12
+      }
+
+      .os-grid .step {
+        grid-column: span 12
+      }
+
+      .member {
+        grid-column: span 12
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- Sticky nav (kept from your site) -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
+        <span>OKY Tech</span>
+      </a>
+      <nav>
+        <a class="link" href="services.html">How We Work</a>
+        <a class="link" href="about.html">O K Y</a>
+        <a class="link" href="contact.html">Let's Start</a>
+      </nav>
+      <a class="cta" href="contact.html">Start a project</a>
+    </div>
+  </div>
+
+  <!-- HERO: About with editor + scroll ring -->
+  <header class="hero hero--programmer container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">O K Y = Outcomes, Knowledge, Yield.</div>
+        <h1>Designers who code. Engineers who care about type.</h1>
+        <p>We ship product‑grade Shopify apps, high‑speed websites, and automated testing systems. Fewer moving parts,
+          fewer surprises, faster outcomes.</p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="cta" href="#who">Our DNA</a>
+          <button id="modeToggle" class="cta" style="background:#fff;color:var(--ink);border-color:var(--line)">Soft
+            mode</button>
+        </div>
+      </div>
+      <div class="editor" aria-label="Code preview">
+        <div class="editor-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="tab active">about/principles.md</span>
+          <span class="tab">oky/stack.json</span>
+        </div>
+        <pre class="code"><code><span class="c"># OKY Tech — Principles</span>
+<span class="k">-</span> Clarity over cleverness
+<span class="k">-</span> Performance budgets, always
+<span class="k">-</span> Accessibility is non‑negotiable
+<span class="k">-</span> Testing in CI by default
+<span class="k">-</span> Own the outcome, not just the code
+
+<span class="c">// Snapshot: org metrics</span>
+<span class="n">deploys_per_month</span>: <span class="n">42</span>
+<span class="n">median_ttv_seconds</span>: <span class="n">68</span>
+<span class="n">a11y_issues_prevented</span>: <span class="n">819</span>
+</code></pre>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Our 3 Pillars - O K Y</h2>
+      <p class="lead reveal" style="transition-delay:.05s">
+        A simple mantra: Outcomes first, Keep it calm, and Your growth, our craft.
+      </p>
+      <div class="grid" style="margin-top:22px">
+        <article class="card reveal">
+          <img src="assets/image/outcome.png" alt="Outcomes first"
+            style="width:100%;border-radius:12px;margin-bottom:12px" />
+          <h3>O - Outcomes first</h3>
+          <p class="muted">We measure success with real impact: speed, stability, and conversions that move the needle.
+          </p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <img src="assets/image/keep.png" alt="Keep it calm"
+            style="width:100%;border-radius:12px;margin-bottom:12px" />
+          <h3>K - Keep it calm</h3>
+          <p class="muted">Calm design, minimal interfaces, smooth performance. Everything feels effortless and
+            accessible.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <img src="assets/image/your.png" alt="Your growth" style="width:100%;border-radius:12px;margin-bottom:12px" />
+          <h3>Y - Your growth, our craft</h3>
+          <p class="muted">From apps to QA systems, we automate scale so you can focus on growth with confidence.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we are / Values (tech‑forward) -->
+  <section class="section" id="who">
+    <div class="container">
+      <div class="eyebrow-compact reveal">What we believe</div>
+      <h2 class="reveal">Our values — written like engineers</h2>
+      <div class="value-grid" style="margin-top:12px">
+        <div class="value reveal">
+          <h3>Clarity > cleverness</h3>
+          <p class="muted">Readable beats tricky. We optimize for future you (and us) who maintain it.</p>
+          <div class="pill-list" style="margin-top:8px"><span class="pill">naming</span><span
+              class="pill">docs</span><span class="pill">simplicity</span></div>
+        </div>
+        <div class="value reveal" style="transition-delay:.05s">
+          <h3>Budgets over vibes</h3>
+          <p class="muted">Performance, error, and bundle budgets keep scope honest and the UI fast.</p>
+          <div class="pill-list" style="margin-top:8px"><span class="pill">lcp ≤ 2.5s</span><span class="pill">no
+              cls</span><span class="pill">p95 error</span></div>
+        </div>
+        <div class="value reveal" style="transition-delay:.1s">
+          <h3>Accessibility by default</h3>
+          <p class="muted">Keyboard paths, contrast, reduced‑motion. It’s quality, not a checkbox.</p>
+          <div class="pill-list" style="margin-top:8px"><span class="pill">wcag</span><span
+              class="pill">aria</span><span class="pill">prefers‑reduced‑motion</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers (live with your count‑up) -->
+  <section class="section" id="impact">
+    <div class="container">
+      <h2 class="reveal">Impact at a glance</h2>
+      <div class="grid" style="margin-top:14px">
+        <article class="card reveal">
+          <h3>Releases shipped</h3>
+          <p class="stat"><span data-count="420"></span></p>
+          <p class="muted">Across apps, sites, and QA systems.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <h3>Median time‑to‑value</h3>
+          <p class="stat"><span data-count="68"></span><span style="font-size:.5em"> s</span></p>
+          <p class="muted">From install to useful outcome.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <h3>Automated checks</h3>
+          <p class="stat"><span data-count="1800"></span></p>
+          <p class="muted">Visual, accessibility, and regression tests.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline + Security/A11y (refined) -->
+  <section class="section" id="timeline">
+    <div class="container row">
+      <div class="reveal">
+        <h2>Milestones</h2>
+        <div class="timeline-simple" style="margin-top:8px">
+          <div class="item"><strong>2025</strong> — Visual + API test coverage; performance budgets standardized.</div>
+          <div class="item"><strong>2024</strong> — Multi‑tenant Shopify apps with billing & signed webhooks.</div>
+          <div class="item"><strong>2023</strong> — Light design system for landing + docs sites.</div>
+        </div>
+      </div>
+      <div class="reveal slab">
+        <h2>Security & accessibility</h2>
+        <ul class="list">
+          <li>OAuth best practices, least‑privilege scopes, signed webhooks.</li>
+          <li>WCAG‑aware color/contrast, keyboard paths, reduced‑motion support.</li>
+          <li>CI gates for Lighthouse, a11y checks, and bundle budgets.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team (optional placeholders; swap with photos later) -->
+  <section class="section" id="team">
+    <div class="container">
+      <h2 class="reveal">Senior team, hands‑on craft</h2>
+      <p class="lead reveal">Minimalist aesthetics, engineering discipline, and calm delivery.</p>
+      <div class="team-grid" style="margin-top:12px">
+        <div class="member reveal">
+          <h4>Design Engineering</h4>
+          <p class="muted">System design, type scales, accessible states, copies that read.</p>
+        </div>
+        <div class="member reveal" style="transition-delay:.05s">
+          <h4>App Development</h4>
+          <p class="muted">Polaris + native UI, OAuth, webhooks, billing, metafields.</p>
+        </div>
+        <div class="member reveal" style="transition-delay:.1s">
+          <h4>Testing & QA</h4>
+          <p class="muted">Playwright suites, visual diffs, observability, CI health.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote / culture signal -->
+  <section class="section" id="quote">
+    <div class="container">
+      <blockquote class="quote reveal">“We bias toward boring, proven tools and fresh, thoughtful UI. That’s how you
+        ship fast without drama.”</blockquote>
+    </div>
+  </section>
+
+  <!-- Footer (kept verbatim) -->
+  <footer class="site-footer">
+    <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
+      <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
+    </svg>
+
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" class="footer-logo" />
+        <div class="footer-title">OKY Tech</div>
+        <p class="tagline">Code that converts.</p>
+        <button class="copy-email" data-email="okytechsolutions@gmail.com"
+          aria-label="Copy email">okytechsolutions@gmail.com</button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="services.html">How We Work</a>
+        <a href="about.html">O K Y</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer-actions">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/oky-tech-solutions-995a73385" aria-label="LinkedIn" class="pill"><img
+              src="assets/image/linkedin.png" alt=""></a>
+          <a href="https://x.com/Oky_Tech" aria-label="X" class="pill"><img src="assets/image/x.png" alt=""></a>
+          <a href="https://www.threads.com/@oky_tech" aria-label="Threads" class="pill"><img
+              src="assets/image/threads.png" alt=""></a>
+          <a href="https://www.instagram.com/oky_tech?igsh=ZzRhcTE1bTN1dHoy" aria-label="Instagram" class="pill"><img
+              src="assets/image/insta.png" alt=""></a>
+          <a href="#" aria-label="Facebook" class="pill"><img src="assets/image/facebook.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OKY Tech. All rights reserved.</span>
+    </div>
+    <div class="footer-spotlight" aria-hidden="true"></div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function copyEmail() {
+      const btn = document.querySelector('.copy-email'); const toast = document.querySelector('.copy-toast');
+      if (!btn) return; btn.addEventListener('click', async () => { try { await navigator.clipboard.writeText(btn.dataset.email || btn.textContent.trim()); if (toast) toast.textContent = 'Copied ✓'; setTimeout(() => toast && (toast.textContent = ''), 1500); } catch (e) { } });
+    })();
+  </script>
+</body>
+
+</html>

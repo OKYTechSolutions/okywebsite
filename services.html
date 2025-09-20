@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OKY Tech — Build Like a Product Team</title>
+  <meta name="description"
+    content="A bold, concept-first page that shows how OKY Tech plans, builds, and improves Shopify experiences." />
+  <link rel="icon" href="assets/image/logo.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* Page-specific accents (kept light; uses your tokens) */
+    .concept-eyebrow {
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .kicker {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-weight: 800
+    }
+
+    .stat {
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 72px)
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .pill-list .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px
+    }
+
+    .badge-ok {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid #16a34a33;
+      background: #f0fdf4;
+      color: #166534;
+      border-radius: 999px;
+      font-size: 12px
+    }
+
+    .grid.feature-grid {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px
+    }
+
+    .feature-card {
+      grid-column: span 6;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow)
+    }
+
+    .feature-card h3 {
+      margin-top: 0
+    }
+
+    @media (max-width:900px) {
+      .feature-card {
+        grid-column: span 12
+      }
+    }
+
+    .accent-panel {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px
+    }
+
+    .do {
+      border-left: 4px solid #16a34a;
+      padding-left: 12px
+    }
+
+    .dont {
+      border-left: 4px solid #ef4444;
+      padding-left: 12px
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Progress -->
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- Header (your header) -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
+        <span>OKY Tech</span>
+      </a>
+      <nav>
+        <a class="link" href="services.html">How We Work</a>
+        <a class="link" href="about.html">O K Y</a>
+        <a class="link" href="contact.html">Let's Start</a>
+      </nav>
+      <a class="cta" href="contact.html">Start a project</a>
+    </div>
+  </div>
+
+  <!-- HERO: The Promise -->
+  <header class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="concept-eyebrow">Build Like a Product Team</div>
+        <h1>We turn one clear goal into a shipped, measurable result.</h1>
+        <p>Less ceremony, more signal. We plan, build, and prove impact without drama. Calm UI, fast delivery, and
+          numbers you can point at.</p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="cta" href="#proof">See proof</a>
+          <button id="modeToggle" class="cta" style="background:#fff;color:var(--ink);border-color:var(--line)">Soft
+            mode</button>
+        </div>
+      </div>
+      <div class="editor" aria-label="Plan preview">
+        <div class="editor-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="tab active">oky/plan.md</span>
+        </div>
+        <pre class="code"><code><span class="c"># One - page plan</span>
+        <span class="n">outcome</span>: <span class="s">“+12% checkout completion”</span>
+        <span class="n">guardrail</span>: <span class="s">“no CLS regressions; LCP ≤ 2.5s”</span>
+        <span class="n">phases</span>:
+    <span class="k">-</span> sketch → <span class="f">wire</span> → <span class="f">ship</span>
+    <span class="k">-</span> test: <span class="n">playwright</span>, <span class="n">visual</span>, <span class="n">a11y</span>
+    <span class="k">-</span> rollout: <span class="n">staged</span>, <span class="n">flags</span>, <span class="n">monitor</span>
+   </code></pre>
+      </div>
+    </div>
+  </header>
+
+  <!-- Proof (metrics) -->
+  <section id="proof" class="section">
+    <div class="container" id="#proof">
+      <div class="kicker reveal">Proof, not pitch</div>
+      <h2 class="reveal">What clients feel after launch</h2>
+      <div class="grid" style="margin-top:18px">
+        <article class="card reveal">
+          <h3>Time‑to‑value</h3>
+          <p class="stat"><span data-count="68"></span><span style="font-size:.5em"> s</span></p>
+          <p class="muted">From app install to a useful outcome.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <h3>Checkout uplift</h3>
+          <p class="stat"><span data-count="12"></span><span style="font-size:.5em"> %</span></p>
+          <p class="muted">Typical band with better error recovery & clarity.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <h3>Regression cuts</h3>
+          <p class="stat"><span data-count="85"></span><span style="font-size:.5em"> %</span></p>
+          <p class="muted">CI gates + visual diffs keep things stable.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Operating system (our ways of working) -->
+  <section class="section" id="os">
+    <div class="container">
+      <div class="eyebrow-compact reveal">We serve the best</div>
+      <h2 class="reveal">Our operating system</h2>
+      <div class="os-grid" style="margin-top:12px">
+        <div class="step reveal">
+          <h3>Weekly demo rhythm</h3>
+          <p class="muted">Show, don’t tell. You’ll see working software every week.</p>
+        </div>
+        <div class="step reveal" style="transition-delay:.05s">
+          <h3>Docs you can follow</h3>
+          <p class="muted">One‑page plan, decisions log, rollout notes. Always current.</p>
+        </div>
+        <div class="step reveal" style="transition-delay:.1s">
+          <h3>QA is a feature</h3>
+          <p class="muted">Playwright + visual checks in CI. Fewer hotfixes, calmer launches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process (sharp + legible) -->
+  <section class="section" id="#testing">
+    <div class="container row">
+      <div class="reveal">
+        <div class="kicker">How we work</div>
+        <h2>Small, senior, outcome‑driven</h2>
+        <p class="muted">We do a few things extremely well: Shopify apps, high‑speed sites, and testing that prevents
+          fires.</p>
+        <ul class="list" style="margin-top:8px">
+          <li><strong>Discover:</strong> audit, risks, and a one‑page plan</li>
+          <li><strong>Design:</strong> calm type scales, a11y states, zero fluff</li>
+          <li><strong>Develop:</strong> Polaris when it helps; idiomatic HTML when it’s faster</li>
+          <li><strong>Test:</strong> Playwright e2e + components + visual checks on CI</li>
+          <li><strong>Deploy:</strong> staged rollout, flags, and monitoring</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="accent-panel">
+          <h3 style="margin:0 0 8px">Tech we bring</h3>
+          <div class="pill-list">
+            <span class="pill">Polaris</span><span class="pill">App Bridge</span><span class="pill">Hydrogen</span><span
+              class="pill">Liquid</span>
+            <span class="pill">Functions</span><span class="pill">Checkout UI</span><span class="pill">Metafields</span>
+            <span class="pill">Playwright</span><span class="pill">CI/CD</span><span class="pill">PostgreSQL</span>
+          </div>
+          <p class="muted" style="margin-top:8px">All choices bias toward speed today and flexibility tomorrow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offerings (three focused lanes) -->
+  <section class="section">
+    <div class="container">
+      <div class="kicker reveal">Pick a lane or go end‑to‑end</div>
+      <h2 class="reveal">What we ship</h2>
+      <div class="grid feature-grid" style="margin-top:12px">
+        <div class="feature-card reveal">
+          <h3>Shopify App Development <span class="badge-ok">OAuth, Billing, Webhooks</span></h3>
+          <p class="muted">Custom apps and extensions with the right mix of Polaris + native UI. We keep state simple,
+            scopes tight, and logs useful.</p>
+          <ul class="list">
+            <li>Install flows that don’t leak users</li>
+            <li>Growth loops (sane, measurable, reversible)</li>
+            <li>Structured event tracking</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.05s">
+          <h3>High‑Performance Websites <span class="badge-ok">LCP ≤ 2.5s</span></h3>
+          <p class="muted">Landing pages, product sites, and docs that read clean and load fast. Accessibility isn’t an
+            afterthought.</p>
+          <ul class="list">
+            <li>Semantic HTML, careful contrast, keyboard paths</li>
+            <li>Performance budgets + audits baked in</li>
+            <li>Changelogs and release notes that earn trust</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.1s">
+          <h3>Testing <span class="badge">Automation</span></h3>
+          <p class="muted">Catch regressions before they reach users. We use stable fixtures, seeded data, and visual
+            snapshots.</p>
+          <ul class="list">
+            <li>Playwright e2e + component tests on CI</li>
+            <li>Real-device test coverage</li>
+            <li>Visual diffs for UI confidence</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" style="transition-delay:.15s">
+          <h3>QA Systems <span class="badge">Reliability</span></h3>
+          <p class="muted">Dashboards and load checks ensure stable releases. We turn CI/CD pipelines into observability
+            layers.</p>
+          <ul class="list">
+            <li>Dashboards for flake, duration, pass rate</li>
+            <li>Load & reliability checks where it matters</li>
+            <li>Audit trails + monitoring integrations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Opinionated guide (Contrast Switcher) -->
+  <section class="section" id="contrast">
+  <div class="container">
+    <div class="contrast-head">
+      <h2>How we work (at a glance)</h2>
+      <div class="contrast-toggle" role="tablist" aria-label="Contrast switcher">
+        <button class="seg active" role="tab" aria-selected="true" aria-controls="do-panel" id="seg-do">We do</button>
+        <button class="seg" role="tab" aria-selected="false" aria-controls="dont-panel" id="seg-dont">We don’t</button>
+        <span class="seg-underline" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="contrast-panels">
+      <!-- We do -->
+      <article class="contrast-panel is-active" id="do-panel" role="tabpanel" aria-labelledby="seg-do">
+        <ul class="contrast-list">
+          <li>
+            <span class="badge-good">✓</span>
+            <div>
+              <strong>Scope by outcomes</strong>
+              <p class="muted">Targets like “+12% checkout” with guardrails (LCP ≤ 2.5s).</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-good">✓</span>
+            <div>
+              <strong>Airy UI with one accent</strong>
+              <p class="muted">Readable type, clear rhythm, accessible states.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-good">✓</span>
+            <div>
+              <strong>Docs you can actually follow</strong>
+              <p class="muted">One-page plan, changelog, rollout notes.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-good">✓</span>
+            <div>
+              <strong>Visible metrics</strong>
+              <p class="muted">Dashboards for conversion, performance, and stability.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- We don’t -->
+      <article class="contrast-panel" id="dont-panel" role="tabpanel" aria-labelledby="seg-dont" hidden>
+        <ul class="contrast-list">
+          <li>
+            <span class="badge-bad">✕</span>
+            <div>
+              <strong>Over-engineer for imaginary scale</strong>
+              <p class="muted">We choose boring, proven tools first.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-bad">✕</span>
+            <div>
+              <strong>Let style overshadow readability</strong>
+              <p class="muted">Contrast, spacing, and semantics beat trends.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-bad">✕</span>
+            <div>
+              <strong>Ship without guardrails or rollbacks</strong>
+              <p class="muted">Flags, staged rollout, and monitoring by default.</p>
+            </div>
+          </li>
+          <li>
+            <span class="badge-bad">✕</span>
+            <div>
+              <strong>Hide behind process when things break</strong>
+              <p class="muted">We fix forward, write the note, and move on.</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Case gallery (uses your snapwrap) -->
+  <section class="section" id="#highlights" >
+    <div class="container">
+      <div class="kicker reveal">Selected work</div>
+      <h2 class="reveal">Recent highlights</h2>
+      <div class="snapwrap" aria-label="Case studies">
+        <figure class="tile reveal" style="position:relative">
+          <img src="assets/image/optincart.png" alt="Opt In Cart app UI"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <h4>Opt In Cart - Shopify</h4>
+        </figure>
+        <figure class="tile reveal" style="position:relative;transition-delay:.04s">
+          <img src="assets/image/checkoutux.png" alt="Checkout UX Revamp"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <h4>Checkout UX Revamp - eCom</h4>
+        </figure>
+        <figure class="tile reveal" style="position:relative;transition-delay:.08s">
+          <img src="assets/image/okydash.png" alt="OKY Infra Monitor dashboards"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <h4>OKY Infra Monitor - Internal</h4>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container grid" style="align-items:start">
+      <article class="card reveal">
+        <h3>How fast can we start?</h3>
+        <p class="muted">We can scope within 2–3 calls. Builds usually begin the following week once the one‑page plan
+          is approved.</p>
+      </article>
+      <article class="card reveal">
+        <h3>How do we communicate?</h3>
+        <p class="muted">One shared channel + weekly demos. You always have access to the plan, issues, and dashboards.
+        </p>
+      </article>
+      <article class="card reveal">
+        <h3>Who does the work?</h3>
+        <p class="muted">A small senior crew—no handoffs to juniors. Designers who code, engineers who care about type.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container row">
+      <div class="reveal">
+        <div class="kicker">Let’s move</div>
+        <h2>Tell us one outcome. We’ll chart the calmest path.</h2>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <a class="cta" href="mailto:okytechsolutions@gmail.com">Email us</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="accent-panel">
+          <h3 style="margin:0 0 6px">What you’ll get in week 1</h3>
+          <ul class="list">
+            <li>Audit notes + a one‑page plan</li>
+            <li>Wireframe of the riskiest flow</li>
+            <li>Demo date + rollout strategy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (your footer) -->
+  <footer class="site-footer">
+    <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
+      <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
+    </svg>
+
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" class="footer-logo" />
+        <div class="footer-title">OKY Tech</div>
+        <p class="tagline">Code that converts.</p>
+        <button class="copy-email" data-email="okytechsolutions@gmail.com"
+          aria-label="Copy email">okytechsolutions@gmail.com</button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="services.html">How We Work</a>
+        <a href="about.html">O K Y</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer-actions">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/oky-tech-solutions-995a73385" aria-label="LinkedIn" class="pill"><img
+              src="assets/image/linkedin.png" alt=""></a>
+          <a href="https://x.com/Oky_Tech" aria-label="X" class="pill"><img src="assets/image/x.png" alt=""></a>
+          <a href="https://www.threads.com/@oky_tech" aria-label="Threads" class="pill"><img
+              src="assets/image/threads.png" alt=""></a>
+          <a href="https://www.instagram.com/oky_tech?igsh=ZzRhcTE1bTN1dHoy" aria-label="Instagram" class="pill"><img
+              src="assets/image/insta.png" alt=""></a>
+          <a href="#" aria-label="Facebook" class="pill"><img src="assets/image/facebook.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OKY Tech. All rights reserved.</span>
+    </div>
+    <div class="footer-spotlight" aria-hidden="true"></div>
+  </footer>
+
+  <!-- Behavior -->
+  <script src="assets/main.js"></script>
+  <script>
+    // Year + copy-to-clipboard
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const btn = document.querySelector('.copy-email'); const toast = document.querySelector('.copy-toast');
+      if (!btn) return; btn.addEventListener('click', async () => { try { await navigator.clipboard.writeText(btn.dataset.email || btn.textContent.trim()); if (toast) toast.textContent = 'Copied ✓'; setTimeout(() => toast && (toast.textContent = ''), 1500); } catch (e) { } });
+    })();
+  </script>
+</body>
+
+</html>

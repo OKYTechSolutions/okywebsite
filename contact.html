@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — OKY Tech</title>
+  <meta name="description"
+    content="OKY Tech builds Shopify apps, high-performance websites, and smart testing systems." />
+  <link rel="icon" href="assets/image/logo.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Scoped helpers -->
+  <style>
+    /* Ensure hero image sits behind gridlines, scales nicely */
+    .hero-art {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-art .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-art .gridlines {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* Form action row so the button doesn't stretch full width */
+    #form .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    #submitBtn {
+      width: auto;
+      align-self: flex-start;
+    }
+
+    /* Thank-you card toggling */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
+        <span>OKY Tech</span>
+      </a>
+      <nav>
+        <a class="link" href="services.html">How We Work</a>
+        <a class="link" href="about.html">O K Y</a>
+        <a class="link" href="contact.html">Let's Start</a>
+      </nav>
+      <a class="cta" href="contact.html">Start a project</a>
+    </div>
+  </div>
+
+  <header class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Calm UI. Bold results.</div>
+        <h1>Let’s build something calm and fast.</h1>
+        <p>A short form, a quick call, and a clear plan. We keep it simple.</p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="cta" href="#form">Contact us</a>
+          <button id="modeToggle" class="cta" style="background:#fff;color:var(--ink);border-color:var(--line)">Soft
+            mode</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/image/contact.png" alt="" class="hero-image" />
+        <div class="gridlines"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container row">
+      <div class="reveal">
+        <h2>Tell us about your project</h2>
+        <p class="lead">We’ll reply within one business day.</p>
+
+        <!-- CONTACT FORM -->
+        <form id="form" class="card" style="display:grid;gap:12px">
+          <label>Full name
+            <input required name="name" placeholder="Your name"
+              style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px" />
+          </label>
+          <label>Mobile/Phone No.
+            <input required name="phone" placeholder="Phone number"
+              style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px" />
+          </label>
+          <label>Email
+            <input required type="email" name="email" placeholder="you@company.com"
+              style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px" />
+          </label>
+          <label>Lets start building...
+            <textarea required name="message" rows="5" placeholder="A Shopify app, website, or testing setup..."
+              style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px"></textarea>
+          </label>
+
+          <!-- simple honeypot for bots (must stay empty) -->
+          <input type="text" name="_hp" autocomplete="off" tabindex="-1" style="display:none">
+
+          <div class="actions">
+            <button class="cta" type="submit" id="submitBtn">Send</button>
+            <p id="formStatus" class="muted" style="margin:0"></p>
+          </div>
+        </form>
+
+        <!-- THANK-YOU BANNER -->
+        <div id="thankyou" class="card hidden"
+          style="display:grid;gap:10px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px">
+          <h3 style="margin:0">Thanks for contacting OKY Tech ✨</h3>
+          <p class="muted" style="margin:0">We’ve received your message and will reply within one business day.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+            <a class="cta" href="mailto:okytechsolutions@gmail.com">Email us directly</a>
+            <button id="refillBtn" class="cta" style="background:#fff;color:var(--ink);border-color:var(--line)">Send
+              another message</button>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:8px">Prefer email? <a
+            href="mailto:okytechsolutions@gmail.com">okytechsolutions@gmail.com</a></p>
+      </div>
+
+      <div class="reveal">
+        <div class="card" style="background:var(--bg-soft)">
+          <h3>FAQ</h3>
+          <p><strong>How fast can you start?</strong><br />Usually within a week once scope is clear.</p>
+          <p><strong>Do you handle deployments?</strong><br />Yes — staging, rollouts, and monitoring are included.</p>
+          <p><strong>Can you audit an existing site?</strong><br />Absolutely. We’ll benchmark performance and
+            accessibility and deliver fixes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <!-- Wave divider -->
+    <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
+      <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
+    </svg>
+
+    <div class="container footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" class="footer-logo" />
+        <div class="footer-title">OKY Tech</div>
+        <p class="tagline">Code that converts.</p>
+
+        <!-- Copy-to-clipboard email -->
+        <button class="copy-email" data-email="okytechsolutions@gmail.com" aria-label="Copy email">
+          okytechsolutions@gmail.com
+        </button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- Nav -->
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="services.html">How We Work</a>
+        <a href="about.html">O K Y</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+
+      <!-- Social + newsletter -->
+      <div class="footer-actions">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/oky-tech-solutions-995a73385" aria-label="LinkedIn" class="pill"><img
+              src="assets/image/linkedin.png" alt=""></a>
+          <a href="https://x.com/Oky_Tech" aria-label="X" class="pill"><img src="assets/image/x.png" alt=""></a>
+          <a href="https://www.threads.com/@oky_tech" aria-label="Threads" class="pill"><img
+              src="assets/image/threads.png" alt=""></a>
+          <a href="https://www.instagram.com/oky_tech?igsh=ZzRhcTE1bTN1dHoy" aria-label="Instagram" class="pill"><img
+              src="assets/image/insta.png" alt=""></a>
+          <a href="#" aria-label="Facebook" class="pill"><img src="assets/image/facebook.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OKY Tech. All rights reserved.</span>
+    </div>
+
+    <!-- spotlight follows cursor -->
+    <div class="footer-spotlight" aria-hidden="true"></div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // === CHANGE THIS to the Web App URL you just deployed ===
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycby52yohWCAgTC-YelRK3jM89IqnZpMh4_Vpd3ZaykHXo6vAOkZJ2joppnTWqIrtysxr/exec';
+
+    const form = document.getElementById('form');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const thankyou = document.getElementById('thankyou');
+    const refillBtn = document.getElementById('refillBtn');
+
+    const setStatus = (t) => { if (statusEl) statusEl.textContent = t; };
+
+    if (refillBtn) {
+      refillBtn.addEventListener('click', () => {
+        // Show form again, hide thank-you
+        thankyou.classList.add('hidden');
+        form.classList.remove('hidden');
+        setStatus('');
+        form.reset();
+        form.querySelector('[name="name"]').focus();
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      const hp = fd.get('_hp'); // honeypot
+      const data = Object.fromEntries(fd.entries());
+
+      if (hp) return; // bot: silently drop
+
+      if (!data.name || !data.email || !data.message) {
+        setStatus('Please fill in all fields.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = 0.7;
+      setStatus('Sending…');
+
+      try {
+        // Simple request to Apps Script
+        const body = new URLSearchParams(data).toString();
+        await fetch(ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors', // avoids CORS errors with Apps Script
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body
+        });
+
+        // no-cors gives opaque response; optimistically show success UI
+        setStatus('');
+        form.classList.add('hidden');
+        thankyou.classList.remove('hidden');
+        form.reset();
+
+      } catch (err) {
+        setStatus('Something went wrong. Please email us at okytechsolutions@gmail.com.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = 1;
+      }
+    });
+  </script>
+</body>
+
+</html>

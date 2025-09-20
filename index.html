@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — OKY Tech</title>
+  <meta name="description"
+    content="OKY Tech builds Shopify apps, high-performance websites, and smart testing systems." />
+  <link rel="icon" href="assets/image/logo.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+
+  <!-- Fullscreen Intro (SVG, 5s, no skip) -->
+  <div id="intro" class="intro intro--svg" aria-hidden="true">
+    <div class="intro-bg"></div>
+
+    <!-- SVG mark (circle + split lines) -->
+    <svg class="intro-svg" viewBox="0 0 100 100" aria-hidden="true">
+      <!-- Outer ring -->
+      <circle class="mk mk-ring" cx="50" cy="50" r="47" />
+      <!-- Spokes (match your PNG splits) -->
+      <line class="mk mk-spoke" x1="50" y1="50" x2="50" y2="96" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="16" y2="18" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="18" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="82" />
+    </svg>
+
+    <!-- <div class="intro-title">
+      <span class="intro-name">OKY Tech</span>
+      <span class="intro-tag">Build · Ship · Convert</span>
+    </div> -->
+  </div>
+
+  <div class="progress" aria-hidden="true"></div>
+  <div class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
+        <span>OKY Tech</span>
+      </a>
+      <nav>
+        <a class="link" href="services.html">How We Work</a>
+        <a class="link" href="about.html">O K Y</a>
+        <a class="link" href="contact.html">Let's Start</a>
+      </nav>
+      <a class="cta" href="contact.html">Start a project</a>
+    </div>
+  </div>
+
+  <header class="hero hero--programmer container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Programmers. System thinkers. Automators.</div>
+        <h1>
+          We’re
+          <br />
+          <span class="type" data-words='["Programmers","Shopify devs","Test engineers"]'></span>
+          building products that convert.
+        </h1>
+        <p>
+          OKY Tech crafts product-grade Shopify apps, high-speed websites, and automated testing systems.
+          We obsess over clarity, accessibility, and motion that feels effortless.
+        </p>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="cta" href="services.html">Explore services</a>
+          <button id="modeToggle" class="cta" style="background:#fff;color:var(--ink);border-color:var(--line)">Soft
+            mode</button>
+        </div>
+      </div>
+
+      <!-- Code editor canvas: subtly animated, light colors -->
+      <div class="editor" aria-label="Code preview">
+        <div class="editor-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="tab active">oky-app/server.js</span>
+          <span class="tab">theme.liquid</span>
+          <span class="tab">tests/onboarding.spec.js</span>
+        </div>
+        <pre class="code"><code><span class="c">// Lightweight app server with webhooks & auth</span>
+  <span class="k">import</span> app <span class="k">from</span> <span class="s">'@oky/mini'</span>
+  <span class="k">import</span> { verifyShopifyWebhook } <span class="k">from</span> <span class="s">'@oky/shopify'</span>
+
+      app.get(<span class="s">'/health'</span>, <span class="f">(_req</span>, <span class="f">res)</span> => res.json({ status:<span class="s">'ok'</span> }))
+
+      app.post(<span class="s">'/webhooks/orders/create'</span>, verifyShopifyWebhook, <span class="f">async</span> (<span class="f">req</span>) => {
+      <span class="k">const</span> order = req.body
+      <span class="f">await</span> queue.add(<span class="s">'hydrate'</span>, { id: order.id })
+      })
+
+      app.listen(<span class="n">process.env.PORT</span> ?? <span class="n">3000</span>)</code></pre>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="cap-head reveal">
+        <h2>Core capabilities</h2>
+        <p class="lead">Three pillars that compound: product-quality apps, conversion-focused sites, and automated QA.
+        </p>
+      </div>
+
+      <div class="pill-tabs reveal" role="tablist" aria-label="Capabilities">
+        <button class="pill active" role="tab" aria-selected="true" aria-controls="cap-apps" id="tab-apps">Shopify
+          Apps</button>
+        <button class="pill" role="tab" aria-selected="false" aria-controls="cap-sites" id="tab-sites">Websites</button>
+        <button class="pill" role="tab" aria-selected="false" aria-controls="cap-tests" id="tab-tests">Testing
+          Systems</button>
+        <span class="pill-underline" aria-hidden="true"></span>
+      </div>
+
+      <div class="cap-panels">
+
+        <!-- Apps -->
+        <article class="cap-panel card reveal is-active" id="cap-apps" role="tabpanel" aria-labelledby="tab-apps">
+          <div class="cap-row">
+            <div class="cap-copy">
+              <span class="chip">Apps</span>
+              <h3>Product-grade Shopify Apps</h3>
+              <p class="muted">Embedded UX with Polaris, App Bridge flows, and fast Liquid. App listings, OAuth/billing,
+                and app-review ready.</p>
+              <ul class="cap-ul">
+                <li>Admin + Storefront API integrations</li>
+                <li>Scalable DB & job queues</li>
+                <li>Telemetry, feature flags, and rollbacks</li>
+              </ul>
+              <div class="cap-cta">
+                <a class="btn btn-primary" href="services.html#highlights">See app case studies</a>
+                <a class="btn btn-outline" href="services.html">Our app process</a>
+              </div>
+            </div>
+            <div class="cap-side">
+              <div class="mini-stats">
+                <div><strong>30+</strong><span>apps shipped</span></div>
+                <div><strong>~0.3s</strong><span>server p95</span></div>
+                <div><strong>99.9%</strong><span>uptime</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Websites -->
+        <article class="cap-panel card reveal" id="cap-sites" role="tabpanel" aria-labelledby="tab-sites" hidden>
+          <div class="cap-row">
+            <div class="cap-copy">
+              <span class="chip">Web</span>
+              <h3>Conversion-first Websites</h3>
+              <p class="muted">Focused messaging, clean typography, and first-contentful paint under 1s on 4G. Built for
+                iteration.</p>
+              <ul class="cap-ul">
+                <li>Section-driven themes & design systems</li>
+                <li>SEO that doesn’t fight developer experience</li>
+                <li>Analytics, experiments, and heatmaps</li>
+              </ul>
+              <div class="cap-cta">
+                <a class="btn btn-primary" href="services.html#proof">See web wins</a>
+                <a class="btn btn-outline" href="services.html">Theme services</a>
+              </div>
+            </div>
+            <div class="cap-side">
+              <div class="mini-stats">
+                <div><strong>&lt;1s</strong><span>FCP on 4G</span></div>
+                <div><strong>+18%</strong><span>avg. CVR lift</span></div>
+                <div><strong>AA</strong><span>contrast scores</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Testing -->
+        <article class="cap-panel card reveal" id="cap-tests" role="tabpanel" aria-labelledby="tab-tests" hidden>
+          <div class="cap-row">
+            <div class="cap-copy">
+              <span class="chip">QA</span>
+              <h3>Testing Systems that Calm Releases</h3>
+              <p class="muted">Playwright suites, visual diffs, and CI gating—so “ship day” feels boring in the best
+                way.</p>
+              <ul class="cap-ul">
+                <li>Visual regression & a11y checks</li>
+                <li>Data-driven smoke tests</li>
+                <li>Rollout safeguards & on-call playbooks</li>
+              </ul>
+              <div class="cap-cta">
+                <a class="btn btn-primary" href="services.html#testing">See testing setup</a>
+                <a class="btn btn-outline" href="services.html#maintenance">Maintenance plans</a>
+              </div>
+            </div>
+            <div class="cap-side">
+              <div class="mini-stats">
+                <div><strong>–72%</strong><span>post-deploy bugs</span></div>
+                <div><strong>&lt;15m</strong><span>rollback time</span></div>
+                <div><strong>CI</strong><span>required checks</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="differentiators">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:14px">
+        <h2>What makes us different</h2>
+        <p class="lead">Senior engineering with calm, minimal design—built to ship fast and last.</p>
+      </div>
+
+      <div class="grid mini-cards">
+        <article class="card feature reveal">
+          <div class="feat-icon">⌘</div>
+          <h3>Programmer’s mindset</h3>
+          <p>Simple architectures, fewer moving parts, readable code.</p>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feat-icon">⚡</div>
+          <h3>Performance by default</h3>
+          <p>Strict budgets, preloaded critical CSS, instant interactions.</p>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feat-icon">♿</div>
+          <h3>Accessible UI</h3>
+          <p>Semantic HTML, keyboard paths, proper contrast, reduced motion.</p>
+        </article>
+
+        <article class="card feature reveal">
+          <div class="feat-icon">🧪</div>
+          <h3>Testing baked in</h3>
+          <p>Playwright suites, fixtures, visual diffs, CI dashboards.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="promise">
+    <div class="container">
+      <span class="kicker reveal">Build like a product team</span>
+      <h2 class="reveal">We turn one clear goal into a shipped, measurable result.</h2>
+
+      <!-- Row 1: image left, content right -->
+      <div class="grid promise-row reveal" style="margin-top:28px;align-items:center;">
+        <div class="promise-image">
+          <img src="assets/image/onepage.png" alt="Outcomes first"
+            style="width:80%;max-width:420px;border-radius:16px;box-shadow:var(--shadow)" />
+        </div>
+        <div class="promise-copy">
+          <!-- <h3>One-page plan</h3> -->
+          <p class="muted">We start by writing a concise plan on a single page. It covers the target outcome, the
+            boundaries we won’t cross, and the metrics that prove success. This clarity keeps design, engineering, and
+            testing aligned from day one.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: content left, image right -->
+      <div class="grid promise-row reveal" style="margin-top:60px;align-items:center;">
+        <div class="promise-copy">
+          <!-- <h3>Demo every week</h3> -->
+          <p class="muted">Instead of waiting months, you’ll see progress continuously. Every week we ship a small,
+            working
+            slice and demo it live. This keeps momentum high, validates decisions quickly, and replaces big slide decks
+            with tangible results.</p>
+        </div>
+        <div class="promise-image">
+          <img src="assets/image/demo.png" alt="Weekly demo"
+            style="width:80%;max-width:420px;border-radius:16px;box-shadow:var(--shadow)" />
+        </div>
+      </div>
+
+      <!-- Row 3: image left, content right -->
+      <div class="grid promise-row reveal" style="margin-top:60px;align-items:center;">
+        <div class="promise-image">
+          <img src="assets/image/staged.png" alt="Staged rollouts"
+            style="width:80%;max-width:420px;border-radius:16px;box-shadow:var(--shadow)" />
+        </div>
+        <div class="promise-copy">
+          <!-- <h3>Staged rollouts</h3> -->
+          <p class="muted">We ship features safely using flags, toggles, and real-time monitors. That means you can test
+            in production without risking customer experience. We move fast, but never at the expense of store
+            stability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="effortless">
+    <div class="container">
+      <div class="row">
+        <div class="reveal">
+          <h2>We design and engineer web experiences that feel effortless</h2>
+          <p class="lead">Lightweight pages, disciplined motion, and a layout system that scales - so your brand looks
+            sharp at every breakpoint.</p>
+          <div class="ticker reveal" style="margin-top:16px">
+            <div class="ticker-track">
+              <span>Shopify
+                Polaris</span><span>Liquid</span><span>Hydrogen</span><span>Node</span><span>Playwright</span><span>Vite</span><span>PostgreSQL</span><span>CI/CD</span><span>Analytics</span>
+              <span>Shopify
+                Polaris</span><span>Liquid</span><span>Hydrogen</span><span>Node</span><span>Playwright</span><span>Vite</span><span>PostgreSQL</span><span>CI/CD</span><span>Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="card" style="background:var(--accent)">
+            <h3>Why OKY Tech?</h3>
+            <p>We ship <strong>Shopify apps</strong>, fast <strong>marketing sites</strong>, and <strong>testing
+                systems</strong> that keep your releases calm. Our code reads clean, our designs respect attention, and
+              our QA is automated.</p>
+            <div style="display:flex;gap:18px;margin-top:10px">
+              <div>
+                <div class="badge">Avg. CLS</div>
+                <div style="font-size:28px;font-weight:800"><span data-count="0" data-count-now="0"
+                    id="cls">0</span><span style="font-size:16px"> ms</span></div>
+              </div>
+              <div>
+                <div class="badge">Time to ship</div>
+                <div style="font-size:28px;font-weight:800"><span data-count="12"></span><span style="font-size:16px">
+                    days</span></div>
+              </div>
+              <div>
+                <div class="badge">Defects caught</div>
+                <div style="font-size:28px;font-weight:800"><span data-count="327"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="site-footer">
+    <!-- Wave divider -->
+    <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
+      <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
+    </svg>
+
+    <div class="container footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" class="footer-logo" />
+        <div class="footer-title">OKY Tech</div>
+        <p class="tagline">Code that converts.</p>
+
+        <!-- Copy-to-clipboard email -->
+        <button class="copy-email" data-email="okytechsolutions@gmail.com" aria-label="Copy email">
+          okytechsolutions@gmail.com
+        </button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+
+      <!-- Nav -->
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="services.html">How We Work</a>
+        <a href="about.html">O K Y</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+
+      <!-- Social + newsletter -->
+      <div class="footer-actions">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/oky-tech-solutions-995a73385" aria-label="LinkedIn" class="pill"><img
+              src="assets/image/linkedin.png" alt=""></a>
+          <a href="https://x.com/Oky_Tech" aria-label="X" class="pill"><img src="assets/image/x.png" alt=""></a>
+          <a href="https://www.threads.com/@oky_tech" aria-label="Threads" class="pill"><img
+              src="assets/image/threads.png" alt=""></a>
+          <a href="https://www.instagram.com/oky_tech?igsh=ZzRhcTE1bTN1dHoy" aria-label="Instagram" class="pill"><img
+              src="assets/image/insta.png" alt=""></a>
+          <a href="#" aria-label="Facebook" class="pill"><img src="assets/image/facebook.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OKY Tech. All rights reserved.</span>
+    </div>
+
+    <!-- spotlight follows cursor -->
+    <div class="footer-spotlight" aria-hidden="true"></div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
