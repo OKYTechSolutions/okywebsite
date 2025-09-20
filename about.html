@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
+  <!-- =========================================================
+       META / HEAD
+       - Keeps your existing metadata and base stylesheet
+       - Adds mobile-nav.css for hamburger + mobile dropdown
+     ========================================================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — OKY Tech</title>
   <meta name="description"
-    content="OKY Tech builds Shopify apps, high‑performance websites, and smart testing systems." />
+    content="OKY Tech builds Shopify apps, high-performance websites, and smart testing systems." />
   <link rel="icon" href="assets/image/logo.png" />
+
+  <!-- Base site styles (unchanged) -->
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- NEW: Mobile header/footer enhancements (hamburger & dropdown) -->
+  <link rel="stylesheet" href="assets/mobile-nav.css" />
+
   <style>
     /* -------- Page-scoped enhancements (uses your tokens) -------- */
     :root {
@@ -190,29 +201,45 @@
 <body>
   <div class="progress" aria-hidden="true"></div>
 
-  <!-- Sticky nav (kept from your site) -->
+  <!-- =========================================================
+       STICKY NAV
+       - Minimal structural changes for mobile:
+         • Added a hamburger button (.nav-toggle)
+         • Gave the <nav> an id (#nav-links) and class (.nav-links)
+         • Mobile behavior lives in assets/mobile-nav.css + assets/mobile-nav.js
+       - All link text and structure preserved
+     ========================================================= -->
   <div class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
         <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
         <span>OKY Tech</span>
       </a>
-      <nav>
+
+      <!-- NEW: hamburger (hidden on desktop via mobile-nav.css) -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">☰</button>
+
+      <!-- UPDATED: add id + class for mobile dropdown control -->
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
         <a class="link" href="services.html">How We Work</a>
         <a class="link" href="about.html">O K Y</a>
         <a class="link" href="contact.html">Let's Start</a>
       </nav>
+
       <a class="cta" href="contact.html">Start a project</a>
     </div>
   </div>
 
-  <!-- HERO: About with editor + scroll ring -->
+  <!-- =========================================================
+       HERO (About with editor + scroll ring)
+       - Content untouched; mobile layout handled by styles.css
+     ========================================================= -->
   <header class="hero hero--programmer container">
     <div class="hero-grid">
       <div>
         <div class="eyebrow">O K Y = Outcomes, Knowledge, Yield.</div>
         <h1>Designers who code. Engineers who care about type.</h1>
-        <p>We ship product‑grade Shopify apps, high‑speed websites, and automated testing systems. Fewer moving parts,
+        <p>We ship product-grade Shopify apps, high-speed websites, and automated testing systems. Fewer moving parts,
           fewer surprises, faster outcomes.</p>
         <div style="display:flex;gap:12px;margin-top:18px">
           <a class="cta" href="#who">Our DNA</a>
@@ -229,7 +256,7 @@
         <pre class="code"><code><span class="c"># OKY Tech — Principles</span>
 <span class="k">-</span> Clarity over cleverness
 <span class="k">-</span> Performance budgets, always
-<span class="k">-</span> Accessibility is non‑negotiable
+<span class="k">-</span> Accessibility is non-negotiable
 <span class="k">-</span> Testing in CI by default
 <span class="k">-</span> Own the outcome, not just the code
 
@@ -242,6 +269,10 @@
     </div>
   </header>
 
+  <!-- =========================================================
+       Our 3 Pillars - O K Y
+       - Content untouched
+     ========================================================= -->
   <section class="section">
     <div class="container">
       <h2 class="reveal">Our 3 Pillars - O K Y</h2>
@@ -272,7 +303,10 @@
     </div>
   </section>
 
-  <!-- Who we are / Values (tech‑forward) -->
+  <!-- =========================================================
+       Who we are / Values (tech-forward)
+       - Content untouched
+     ========================================================= -->
   <section class="section" id="who">
     <div class="container">
       <div class="eyebrow-compact reveal">What we believe</div>
@@ -292,15 +326,18 @@
         </div>
         <div class="value reveal" style="transition-delay:.1s">
           <h3>Accessibility by default</h3>
-          <p class="muted">Keyboard paths, contrast, reduced‑motion. It’s quality, not a checkbox.</p>
+          <p class="muted">Keyboard paths, contrast, reduced-motion. It’s quality, not a checkbox.</p>
           <div class="pill-list" style="margin-top:8px"><span class="pill">wcag</span><span
-              class="pill">aria</span><span class="pill">prefers‑reduced‑motion</span></div>
+              class="pill">aria</span><span class="pill">prefers-reduced-motion</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Numbers (live with your count‑up) -->
+  <!-- =========================================================
+       Numbers (live with your count-up)
+       - Content untouched
+     ========================================================= -->
   <section class="section" id="impact">
     <div class="container">
       <h2 class="reveal">Impact at a glance</h2>
@@ -311,7 +348,7 @@
           <p class="muted">Across apps, sites, and QA systems.</p>
         </article>
         <article class="card reveal" style="transition-delay:.05s">
-          <h3>Median time‑to‑value</h3>
+          <h3>Median time-to-value</h3>
           <p class="stat"><span data-count="68"></span><span style="font-size:.5em"> s</span></p>
           <p class="muted">From install to useful outcome.</p>
         </article>
@@ -324,32 +361,38 @@
     </div>
   </section>
 
-  <!-- Timeline + Security/A11y (refined) -->
+  <!-- =========================================================
+       Timeline + Security/A11y (refined)
+       - Content untouched
+     ========================================================= -->
   <section class="section" id="timeline">
     <div class="container row">
       <div class="reveal">
         <h2>Milestones</h2>
         <div class="timeline-simple" style="margin-top:8px">
           <div class="item"><strong>2025</strong> — Visual + API test coverage; performance budgets standardized.</div>
-          <div class="item"><strong>2024</strong> — Multi‑tenant Shopify apps with billing & signed webhooks.</div>
+          <div class="item"><strong>2024</strong> — Multi-tenant Shopify apps with billing & signed webhooks.</div>
           <div class="item"><strong>2023</strong> — Light design system for landing + docs sites.</div>
         </div>
       </div>
       <div class="reveal slab">
         <h2>Security & accessibility</h2>
         <ul class="list">
-          <li>OAuth best practices, least‑privilege scopes, signed webhooks.</li>
-          <li>WCAG‑aware color/contrast, keyboard paths, reduced‑motion support.</li>
+          <li>OAuth best practices, least-privilege scopes, signed webhooks.</li>
+          <li>WCAG-aware color/contrast, keyboard paths, reduced-motion support.</li>
           <li>CI gates for Lighthouse, a11y checks, and bundle budgets.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Team (optional placeholders; swap with photos later) -->
+  <!-- =========================================================
+       Team (optional placeholders)
+       - Content untouched
+     ========================================================= -->
   <section class="section" id="team">
     <div class="container">
-      <h2 class="reveal">Senior team, hands‑on craft</h2>
+      <h2 class="reveal">Senior team, hands-on craft</h2>
       <p class="lead reveal">Minimalist aesthetics, engineering discipline, and calm delivery.</p>
       <div class="team-grid" style="margin-top:12px">
         <div class="member reveal">
@@ -368,7 +411,10 @@
     </div>
   </section>
 
-  <!-- Quote / culture signal -->
+  <!-- =========================================================
+       Quote / culture signal
+       - Content untouched
+     ========================================================= -->
   <section class="section" id="quote">
     <div class="container">
       <blockquote class="quote reveal">“We bias toward boring, proven tools and fresh, thoughtful UI. That’s how you
@@ -376,7 +422,9 @@
     </div>
   </section>
 
-  <!-- Footer (kept verbatim) -->
+  <!-- =========================================================
+       FOOTER (unchanged markup; mobile polish handled in CSS)
+     ========================================================= -->
   <footer class="site-footer">
     <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
       <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
@@ -417,7 +465,14 @@
     <div class="footer-spotlight" aria-hidden="true"></div>
   </footer>
 
+  <!-- =========================================================
+       SCRIPTS
+       - Your main JS (unchanged import)
+       - NEW: mobile-nav.js for hamburger/dropdown behavior
+       - Footer year + copy-to-clipboard (kept)
+     ========================================================= -->
   <script src="assets/main.js"></script>
+  <script src="assets/mobile-nav.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function copyEmail() {

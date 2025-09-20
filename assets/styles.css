@@ -1304,3 +1304,58 @@ code {
   .editor { height: 230px !important; }
   .tile { height: 230px !important; }
 }
+
+/* ==========================================================================
+   Mobile Header/Footer Enhancements
+   - Hides hamburger on desktop
+   - Turns primary nav into a dropdown on phones
+   - Keeps header on top when menu is open
+   ========================================================================== */
+
+/* Keep header above content when dropdown opens */
+.nav { position: sticky; top: 0; z-index: 1000; }
+
+/* Default desktop layout: inline links, no hamburger */
+.nav-links { display: flex; gap: 6px; }
+.nav-toggle { display: none; } /* hidden on desktop */
+
+/* Show the big CTA on desktop by default */
+.nav .cta { display: inline-flex; }
+
+/* ---------- Phones & small tablets ---------- */
+@media (max-width: 768px) {
+  .nav-inner { position: relative; gap: 10px; justify-content: space-between; }
+
+  /* Show hamburger; keep size/tap target friendly */
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px; width: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-size: 20px;
+  }
+
+  /* Collapse primary links into a dropdown */
+  .nav-links {
+    position: absolute;
+    top: 60px;              /* matches mobile nav-inner height */
+    left: 0; right: 0;
+    display: none;
+    flex-direction: column; /* vertical list */
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 16px;
+  }
+  .nav-links.open { display: flex; }
+
+  /* Hide the big header CTA on phones (footer has one; hero has one) */
+  .nav .cta { display: none; }
+
+  /* Footer minor polish for compact screens */
+  .footer-grid { padding: 36px 0 18px; }
+  .footer-title { font-size: 18px; }
+  .footer-bottom { font-size: 13px; }
+}

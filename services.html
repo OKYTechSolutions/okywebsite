@@ -2,13 +2,24 @@
 <html lang="en">
 
 <head>
+  <!-- =========================================================
+       META / HEAD
+       - Keeps your existing metadata and base stylesheet
+       - Adds mobile-nav.css for hamburger + mobile dropdown
+     ========================================================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OKY Tech — Build Like a Product Team</title>
   <meta name="description"
     content="A bold, concept-first page that shows how OKY Tech plans, builds, and improves Shopify experiences." />
   <link rel="icon" href="assets/image/logo.png" />
+
+  <!-- Base site styles (unchanged) -->
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- NEW: Mobile header/footer enhancements (hamburger & dropdown) -->
+  <link rel="stylesheet" href="assets/mobile-nav.css" />
+
   <style>
     /* Page-specific accents (kept light; uses your tokens) */
     .concept-eyebrow {
@@ -102,18 +113,31 @@
   <!-- Progress -->
   <div class="progress" aria-hidden="true"></div>
 
-  <!-- Header (your header) -->
+  <!-- =========================================================
+       HEADER (your header)
+       - Minimal structural changes for mobile:
+         • Added a hamburger button (.nav-toggle)
+         • Gave the <nav> an id (#nav-links) and class (.nav-links)
+         • Mobile behavior lives in assets/mobile-nav.css + assets/mobile-nav.js
+       - All link text and structure preserved
+     ========================================================= -->
   <div class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
         <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
         <span>OKY Tech</span>
       </a>
-      <nav>
+
+      <!-- NEW: hamburger (hidden on desktop via mobile-nav.css) -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">☰</button>
+
+      <!-- UPDATED: add id + class for mobile dropdown control -->
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
         <a class="link" href="services.html">How We Work</a>
         <a class="link" href="about.html">O K Y</a>
         <a class="link" href="contact.html">Let's Start</a>
       </nav>
+
       <a class="cta" href="contact.html">Start a project</a>
     </div>
   </div>
@@ -156,7 +180,7 @@
       <h2 class="reveal">What clients feel after launch</h2>
       <div class="grid" style="margin-top:18px">
         <article class="card reveal">
-          <h3>Time‑to‑value</h3>
+          <h3>Time-to-value</h3>
           <p class="stat"><span data-count="68"></span><span style="font-size:.5em"> s</span></p>
           <p class="muted">From app install to a useful outcome.</p>
         </article>
@@ -186,7 +210,7 @@
         </div>
         <div class="step reveal" style="transition-delay:.05s">
           <h3>Docs you can follow</h3>
-          <p class="muted">One‑page plan, decisions log, rollout notes. Always current.</p>
+          <p class="muted">One-page plan, decisions log, rollout notes. Always current.</p>
         </div>
         <div class="step reveal" style="transition-delay:.1s">
           <h3>QA is a feature</h3>
@@ -201,11 +225,11 @@
     <div class="container row">
       <div class="reveal">
         <div class="kicker">How we work</div>
-        <h2>Small, senior, outcome‑driven</h2>
-        <p class="muted">We do a few things extremely well: Shopify apps, high‑speed sites, and testing that prevents
+        <h2>Small, senior, outcome-driven</h2>
+        <p class="muted">We do a few things extremely well: Shopify apps, high-speed sites, and testing that prevents
           fires.</p>
         <ul class="list" style="margin-top:8px">
-          <li><strong>Discover:</strong> audit, risks, and a one‑page plan</li>
+          <li><strong>Discover:</strong> audit, risks, and a one-page plan</li>
           <li><strong>Design:</strong> calm type scales, a11y states, zero fluff</li>
           <li><strong>Develop:</strong> Polaris when it helps; idiomatic HTML when it’s faster</li>
           <li><strong>Test:</strong> Playwright e2e + components + visual checks on CI</li>
@@ -230,7 +254,7 @@
   <!-- Offerings (three focused lanes) -->
   <section class="section">
     <div class="container">
-      <div class="kicker reveal">Pick a lane or go end‑to‑end</div>
+      <div class="kicker reveal">Pick a lane or go end-to-end</div>
       <h2 class="reveal">What we ship</h2>
       <div class="grid feature-grid" style="margin-top:12px">
         <div class="feature-card reveal">
@@ -244,7 +268,7 @@
           </ul>
         </div>
         <div class="feature-card reveal" style="transition-delay:.05s">
-          <h3>High‑Performance Websites <span class="badge-ok">LCP ≤ 2.5s</span></h3>
+          <h3>High-Performance Websites <span class="badge-ok">LCP ≤ 2.5s</span></h3>
           <p class="muted">Landing pages, product sites, and docs that read clean and load fast. Accessibility isn’t an
             afterthought.</p>
           <ul class="list">
@@ -280,91 +304,90 @@
 
   <!-- Opinionated guide (Contrast Switcher) -->
   <section class="section" id="contrast">
-  <div class="container">
-    <div class="contrast-head">
-      <h2>How we work (at a glance)</h2>
-      <div class="contrast-toggle" role="tablist" aria-label="Contrast switcher">
-        <button class="seg active" role="tab" aria-selected="true" aria-controls="do-panel" id="seg-do">We do</button>
-        <button class="seg" role="tab" aria-selected="false" aria-controls="dont-panel" id="seg-dont">We don’t</button>
-        <span class="seg-underline" aria-hidden="true"></span>
+    <div class="container">
+      <div class="contrast-head">
+        <h2>How we work (at a glance)</h2>
+        <div class="contrast-toggle" role="tablist" aria-label="Contrast switcher">
+          <button class="seg active" role="tab" aria-selected="true" aria-controls="do-panel" id="seg-do">We do</button>
+          <button class="seg" role="tab" aria-selected="false" aria-controls="dont-panel" id="seg-dont">We don’t</button>
+          <span class="seg-underline" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="contrast-panels">
+        <!-- We do -->
+        <article class="contrast-panel is-active" id="do-panel" role="tabpanel" aria-labelledby="seg-do">
+          <ul class="contrast-list">
+            <li>
+              <span class="badge-good">✓</span>
+              <div>
+                <strong>Scope by outcomes</strong>
+                <p class="muted">Targets like “+12% checkout” with guardrails (LCP ≤ 2.5s).</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-good">✓</span>
+              <div>
+                <strong>Airy UI with one accent</strong>
+                <p class="muted">Readable type, clear rhythm, accessible states.</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-good">✓</span>
+              <div>
+                <strong>Docs you can actually follow</strong>
+                <p class="muted">One-page plan, changelog, rollout notes.</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-good">✓</span>
+              <div>
+                <strong>Visible metrics</strong>
+                <p class="muted">Dashboards for conversion, performance, and stability.</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- We don’t -->
+        <article class="contrast-panel" id="dont-panel" role="tabpanel" aria-labelledby="seg-dont" hidden>
+          <ul class="contrast-list">
+            <li>
+              <span class="badge-bad">✕</span>
+              <div>
+                <strong>Over-engineer for imaginary scale</strong>
+                <p class="muted">We choose boring, proven tools first.</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-bad">✕</span>
+              <div>
+                <strong>Let style overshadow readability</strong>
+                <p class="muted">Contrast, spacing, and semantics beat trends.</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-bad">✕</span>
+              <div>
+                <strong>Ship without guardrails or rollbacks</strong>
+                <p class="muted">Flags, staged rollout, and monitoring by default.</p>
+              </div>
+            </li>
+            <li>
+              <span class="badge-bad">✕</span>
+              <div>
+                <strong>Hide behind process when things break</strong>
+                <p class="muted">We fix forward, write the note, and move on.</p>
+              </div>
+            </li>
+          </ul>
+        </article>
       </div>
     </div>
-
-    <div class="contrast-panels">
-      <!-- We do -->
-      <article class="contrast-panel is-active" id="do-panel" role="tabpanel" aria-labelledby="seg-do">
-        <ul class="contrast-list">
-          <li>
-            <span class="badge-good">✓</span>
-            <div>
-              <strong>Scope by outcomes</strong>
-              <p class="muted">Targets like “+12% checkout” with guardrails (LCP ≤ 2.5s).</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-good">✓</span>
-            <div>
-              <strong>Airy UI with one accent</strong>
-              <p class="muted">Readable type, clear rhythm, accessible states.</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-good">✓</span>
-            <div>
-              <strong>Docs you can actually follow</strong>
-              <p class="muted">One-page plan, changelog, rollout notes.</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-good">✓</span>
-            <div>
-              <strong>Visible metrics</strong>
-              <p class="muted">Dashboards for conversion, performance, and stability.</p>
-            </div>
-          </li>
-        </ul>
-      </article>
-
-      <!-- We don’t -->
-      <article class="contrast-panel" id="dont-panel" role="tabpanel" aria-labelledby="seg-dont" hidden>
-        <ul class="contrast-list">
-          <li>
-            <span class="badge-bad">✕</span>
-            <div>
-              <strong>Over-engineer for imaginary scale</strong>
-              <p class="muted">We choose boring, proven tools first.</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-bad">✕</span>
-            <div>
-              <strong>Let style overshadow readability</strong>
-              <p class="muted">Contrast, spacing, and semantics beat trends.</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-bad">✕</span>
-            <div>
-              <strong>Ship without guardrails or rollbacks</strong>
-              <p class="muted">Flags, staged rollout, and monitoring by default.</p>
-            </div>
-          </li>
-          <li>
-            <span class="badge-bad">✕</span>
-            <div>
-              <strong>Hide behind process when things break</strong>
-              <p class="muted">We fix forward, write the note, and move on.</p>
-            </div>
-          </li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Case gallery (uses your snapwrap) -->
-  <section class="section" id="#highlights" >
+  <section class="section" id="#highlights">
     <div class="container">
       <div class="kicker reveal">Selected work</div>
       <h2 class="reveal">Recent highlights</h2>
@@ -393,7 +416,7 @@
     <div class="container grid" style="align-items:start">
       <article class="card reveal">
         <h3>How fast can we start?</h3>
-        <p class="muted">We can scope within 2–3 calls. Builds usually begin the following week once the one‑page plan
+        <p class="muted">We can scope within 2–3 calls. Builds usually begin the following week once the one-page plan
           is approved.</p>
       </article>
       <article class="card reveal">
@@ -423,7 +446,7 @@
         <div class="accent-panel">
           <h3 style="margin:0 0 6px">What you’ll get in week 1</h3>
           <ul class="list">
-            <li>Audit notes + a one‑page plan</li>
+            <li>Audit notes + a one-page plan</li>
             <li>Wireframe of the riskiest flow</li>
             <li>Demo date + rollout strategy</li>
           </ul>
@@ -473,8 +496,14 @@
     <div class="footer-spotlight" aria-hidden="true"></div>
   </footer>
 
-  <!-- Behavior -->
+  <!-- =========================================================
+       SCRIPTS
+       - Your main JS (unchanged import)
+       - NEW: mobile-nav.js for hamburger/dropdown behavior
+       - Footer year + copy-to-clipboard (kept)
+     ========================================================= -->
   <script src="assets/main.js"></script>
+  <script src="assets/mobile-nav.js"></script>
   <script>
     // Year + copy-to-clipboard
     document.getElementById('year').textContent = new Date().getFullYear();

@@ -302,3 +302,68 @@ document.addEventListener('DOMContentLoaded', () => {
   setActive(initial);
   window.addEventListener('resize', () => moveThumb(wrap.querySelector('.seg.active')));
 })();
+
+/* ==========================================================================
+   Mobile Navigation & Footer Helpers
+   - Hamburger toggle with ARIA
+   - Close on link click and on viewport resize to desktop
+   - Optional: prevent body scroll when menu is open
+   - Footer copy-to-clipboard feedback
+   ========================================================================== */
+
+(() => {
+  const btn = document.querySelector('.nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!btn || !links) return;
+
+  const lockBody = (on) => {
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    document.body.style.overflow = on ? 'hidden' : '';
+  };
+
+  const setOpen = (open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    links.classList.toggle('open', open);
+    lockBody(open);
+  };
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    setOpen(open);
+  });
+
+  // Close menu when a nav link is tapped/clicked
+  links.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setOpen(false);
+  });
+
+  // Close the menu when resizing to desktop
+  const onResize = () => {
+    if (window.innerWidth > 768 && btn.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  };
+  window.addEventListener('resize', onResize);
+
+  // Safety: if JS loads after user resizes, ensure correct initial state
+  onResize();
+})();
+
+/* Footer: copy-to-clipboard with a tiny toast message */
+(() => {
+  const btn = document.querySelector('.copy-email');
+  const toast = document.querySelector('.copy-toast');
+  if (!btn || !toast) return;
+
+  btn.addEventListener('click', async () => {
+    const email = btn.getAttribute('data-email') || btn.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.textContent = 'Copied!';
+      setTimeout(() => (toast.textContent = ''), 1500);
+    } catch {
+      toast.textContent = 'Press Ctrl/Cmd+C to copy';
+      setTimeout(() => (toast.textContent = ''), 2000);
+    }
+  });
+})();

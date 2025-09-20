@@ -10,6 +10,9 @@
   <link rel="icon" href="assets/image/logo.png" />
   <link rel="stylesheet" href="assets/styles.css" />
 
+  <!-- NEW: Mobile header/footer enhancements (hamburger & dropdown) -->
+  <link rel="stylesheet" href="assets/mobile-nav.css" />
+
   <!-- Scoped helpers -->
   <style>
     /* Ensure hero image sits behind gridlines, scales nicely */
@@ -55,17 +58,29 @@
 <body>
   <div class="progress" aria-hidden="true"></div>
 
+  <!-- =========================================================
+       HEADER (kept verbatim visually; minimal mobile tweaks)
+       - Added a hamburger button (.nav-toggle)
+       - Gave the <nav> an id (#nav-links) and class (.nav-links)
+       - Behavior lives in assets/mobile-nav.css + assets/mobile-nav.js
+     ========================================================= -->
   <div class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
         <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
         <span>OKY Tech</span>
       </a>
-      <nav>
+
+      <!-- NEW: hamburger (hidden on desktop via mobile-nav.css) -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">☰</button>
+
+      <!-- UPDATED: add id + class for mobile dropdown control -->
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
         <a class="link" href="services.html">How We Work</a>
         <a class="link" href="about.html">O K Y</a>
         <a class="link" href="contact.html">Let's Start</a>
       </nav>
+
       <a class="cta" href="contact.html">Start a project</a>
     </div>
   </div>
@@ -204,6 +219,8 @@
 
   <!-- Scripts -->
   <script src="assets/main.js"></script>
+  <!-- NEW: Mobile menu behavior (hamburger dropdown, scroll lock, close-on-resize/link) -->
+  <script src="assets/mobile-nav.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 

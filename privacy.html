@@ -2,29 +2,50 @@
 <html lang="en">
 
 <head>
+  <!-- =========================================================
+       META / HEAD
+       - Keeps your existing metadata and base stylesheet
+       - Adds mobile-nav.css for hamburger + mobile dropdown
+     ========================================================= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — OKY Tech</title>
   <meta name="description" content="Privacy policy for OKY Tech. Learn how we collect, use, and protect your data." />
   <link rel="icon" href="assets/image/logo.png" />
+
+  <!-- Base site styles (unchanged) -->
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- NEW: Mobile header/footer enhancements (hamburger & dropdown) -->
+  <link rel="stylesheet" href="assets/mobile-nav.css" />
 </head>
 
 <body>
   <div class="progress" aria-hidden="true"></div>
 
-  <!-- Header from About page (kept verbatim) -->
+  <!-- =========================================================
+       HEADER (kept verbatim visually; minimal mobile tweaks)
+       - Added a hamburger button (.nav-toggle)
+       - Gave the <nav> an id (#nav-links) and class (.nav-links)
+       - Behavior lives in assets/mobile-nav.css + assets/mobile-nav.js
+     ========================================================= -->
   <div class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">
         <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
         <span>OKY Tech</span>
       </a>
-      <nav>
+
+      <!-- NEW: hamburger (hidden on desktop via mobile-nav.css) -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">☰</button>
+
+      <!-- UPDATED: add id + class for mobile dropdown control -->
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
         <a class="link" href="services.html">How We Work</a>
         <a class="link" href="about.html">O K Y</a>
         <a class="link" href="contact.html">Let's Start</a>
       </nav>
+
       <a class="cta" href="contact.html">Start a project</a>
     </div>
   </div>
@@ -53,7 +74,7 @@
     <section class="section">
       <div class="container">
         <h2>Who we are</h2>
-        <p>"OKY Tech" ("we", "us") builds Shopify apps, high‑performance websites, and automated testing systems. If you
+        <p>"OKY Tech" ("we", "us") builds Shopify apps, high-performance websites, and automated testing systems. If you
           have questions about this policy, contact <a
             href="mailto:okytechsolutions@gmail.com">okytechsolutions@gmail.com</a>.</p>
       </div>
@@ -117,7 +138,7 @@
       <div class="container">
         <h2>Cookies & tracking</h2>
         <p>We may use strictly necessary cookies and similar technologies to keep sessions secure and remember
-          preferences. If analytics are enabled, they are configured to be privacy‑respectful and avoid storing
+          preferences. If analytics are enabled, they are configured to be privacy-respectful and avoid storing
           personally identifying content whenever possible. You can manage cookies through your browser settings.</p>
       </div>
     </section>
@@ -153,7 +174,7 @@
       <div class="container">
         <h2>Security</h2>
         <ul class="list">
-          <li>OAuth best practices, least‑privilege permissions, and signed webhooks.</li>
+          <li>OAuth best practices, least-privilege permissions, and signed webhooks.</li>
           <li>Encrypted transport (HTTPS) and secure secrets management.</li>
           <li>Automated tests and CI gates for performance and reliability.</li>
         </ul>
@@ -211,7 +232,9 @@
     </section>
   </main>
 
-  <!-- Footer from About page (kept verbatim) -->
+  <!-- =========================================================
+       FOOTER (kept verbatim)
+     ========================================================= -->
   <footer class="site-footer">
     <!-- Wave divider -->
     <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
@@ -263,7 +286,14 @@
     <div class="footer-spotlight" aria-hidden="true"></div>
   </footer>
 
+  <!-- =========================================================
+       SCRIPTS
+       - Your main JS (unchanged import)
+       - NEW: mobile-nav.js for hamburger/dropdown behavior
+       - Existing inline helpers (effective date, year, copy-to-clipboard)
+     ========================================================= -->
   <script src="assets/main.js"></script>
+  <script src="assets/mobile-nav.js"></script>
   <script>
     // Effective date defaults to today; set a fixed string if you need versioning.
     document.getElementById('pp-date').textContent = new Date().toLocaleDateString();
