@@ -1177,3 +1177,130 @@ code {
     align-self: stretch;
   }
 }
+
+/* ============================== */
+/* MOBILE FIX PATCH (phones)      */
+/* Place at end of styles.css     */
+/* ============================== */
+
+@media (max-width: 768px) {
+  /* 1) Make every grid item full-width by default,
+        then let special components override as needed. */
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .grid > * {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* 2) Container breathing room & safe sides */
+  .container {
+    padding-inline: 16px !important;
+  }
+
+  /* 3) Navigation compact */
+  .nav-inner {
+    height: 60px !important;
+  }
+  .nav a.link { padding: 8px 10px; }
+
+  /* 4) Hero layout & type scale */
+  .hero {
+    padding: 72px 0 56px !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  h1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.1;
+  }
+
+  /* 5) Editor block: fit shorter viewports */
+  .editor {
+    height: 260px !important;
+  }
+
+  /* 6) “Promise” rows: always single column on phones */
+  .promise-row {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+  .promise-image img {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin-inline: auto;
+  }
+
+  /* 7) Capabilities pills: stop underline fighting line wrap */
+  #capabilities .pill-tabs {
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 10px !important;
+    border-radius: 16px !important;
+  }
+  /* Hide the sliding underline on small screens (use active color only) */
+  #capabilities .pill-underline { display: none !important; }
+  #capabilities .pill {
+    padding: 10px 12px !important;
+    font-size: 14.5px !important;
+  }
+
+  /* 8) Contrast (We do / We don’t) segmented control */
+  #contrast .contrast-head {
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+  #contrast .contrast-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  #contrast .seg {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    padding: 0 8px !important;
+    height: 38px !important;
+    font-size: 14.5px !important;
+  }
+  #contrast .seg-underline {
+    display: none !important; /* avoid overlap when pills wrap */
+  }
+
+  /* 9) Cards: make sure they really span full width */
+  .card {
+    grid-column: 1 / -1 !important;
+    padding: 18px !important;
+  }
+
+  /* 10) Snap gallery tiles: slightly narrower so edges show */
+  .tile {
+    flex-basis: 88% !important;
+    max-width: 88% !important;
+    height: 260px !important;
+  }
+
+  /* 11) Footer spacing & icon sizing */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    padding: 36px 0 18px !important;
+  }
+  .footer-social .pill {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  .footer-social .pill img {
+    width: 24px !important;
+  }
+}
+
+/* Ultra-small phones (≤360px) */
+@media (max-width: 360px) {
+  .hero { padding-top: 64px !important; }
+  h1 { font-size: clamp(26px, 8vw, 36px) !important; }
+  .editor { height: 230px !important; }
+  .tile { height: 230px !important; }
+}
