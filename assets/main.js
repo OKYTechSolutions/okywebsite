@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   // ====================== L) FIRST-VISIT INTRO ============================
-  // 5s branded splash (SVG), persisted in localStorage.
+  // 5s branded splash (gradient panel), persisted in localStorage.
   (function introOnce() {
     const intro = document.getElementById('intro');
     if (!intro) return;

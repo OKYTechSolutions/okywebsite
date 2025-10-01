@@ -16,16 +16,17 @@
 </head>
 
 <body>
-  <!-- ============ FIRST-VISIT INTRO (5s SVG) ============ -->
-  <div id="intro" class="intro intro--svg" aria-hidden="true">
-    <div class="intro-bg"></div>
-    <svg class="intro-svg" viewBox="0 0 100 100" aria-hidden="true">
-      <circle class="mk mk-ring" cx="50" cy="50" r="47"/>
-      <line class="mk mk-spoke" x1="50" y1="50" x2="50" y2="96"/>
-      <line class="mk mk-spoke" x1="50" y1="50" x2="16" y2="18"/>
-      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="18"/>
-      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="82"/>
-    </svg>
+  <!-- ============ FIRST-VISIT INTRO (5s welcome splash) ============ -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-orb" aria-hidden="true"></div>
+    <div class="intro-content">
+      <span class="intro-chip">OKY Tech</span>
+      <h1>Shopify experiences, loading with intent.</h1>
+      <p>Give us five seconds to stage OptInCart and everything else built to lift conversion.</p>
+      <div class="intro-progress" role="presentation">
+        <span class="intro-progress__bar"></span>
+      </div>
+    </div>
   </div>
 
   <!-- Thin scroll progress bar (animated in main.js) -->
