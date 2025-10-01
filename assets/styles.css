@@ -646,70 +646,80 @@ h1 {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 18px;
-  max-width: min(520px, 90vw);
+  place-items: center;
+  width: min(360px, 70vw);
+  padding: clamp(18px, 4vw, 32px);
 }
 
-.intro-chip {
-  justify-self: center;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.45);
-  background: rgba(15, 23, 42, 0.55);
-  font-size: 12px;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.85);
-}
-
-.intro-chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: #38bdf8;
-}
-
-.intro-content h1 {
-  margin: 0;
-  font-size: clamp(32px, 6vw, 48px);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
-
-.intro-content p {
-  margin: 0;
-  color: rgba(226, 232, 240, 0.78);
-  font-size: clamp(16px, 3vw, 20px);
-}
-
-.intro-progress {
+.intro-logo {
   position: relative;
-  width: clamp(220px, 40vw, 360px);
-  height: 3px;
-  margin: 6px auto 0;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.24);
-  overflow: hidden;
+  display: grid;
+  place-items: center;
+  width: clamp(160px, 24vw, 220px);
+  aspect-ratio: 1 / 1;
 }
 
-.intro-progress__bar {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(90deg, #22c55e, #38bdf8);
-  animation: introProgress 4.6s ease-in-out forwards;
-  animation-delay: .4s;
+.intro-logo__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(148, 163, 184, 0.45);
+  transform-origin: center;
 }
 
-@keyframes introProgress {
-  to {
-    width: 100%;
-  }
+.intro-logo__ring--outer {
+  animation: introRingSpin 9s linear infinite;
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 0 26px rgba(56, 189, 248, 0.35);
 }
+
+.intro-logo__ring--inner {
+  inset: 18%;
+  border: 2px dashed rgba(34, 197, 94, 0.65);
+  animation: introRingReverse 6s linear infinite;
+  opacity: .85;
+}
+
+.intro-logo__mark {
+  width: 60%;
+  filter: drop-shadow(0 10px 24px rgba(15, 118, 110, 0.35));
+  animation: introMarkPop 4.5s ease-in-out infinite;
+}
+
+.intro-logo__glow {
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, rgba(56, 189, 248, 0.45), rgba(56, 189, 248, 0) 65%), radial-gradient(circle at 65% 65%, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0) 70%);
+  filter: blur(24px);
+  animation: introGlow 5.8s ease-in-out infinite;
+  opacity: .85;
+}
+
+.intro-logo__spark {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #f8fafc 0, rgba(248, 250, 252, 0) 70%);
+  box-shadow: 0 0 18px rgba(248, 250, 252, 0.7), 0 0 36px rgba(56, 189, 248, 0.5);
+  opacity: 0;
+}
+
+.intro-logo__spark--one {
+  top: 12%;
+  right: 16%;
+  animation: introSpark 4.2s ease-in-out infinite;
+}
+
+.intro-logo__spark--two {
+  bottom: 10%;
+  left: 18%;
+  animation: introSpark 4.2s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
 
 @keyframes introDrift {
   0% {
@@ -740,6 +750,94 @@ h1 {
   }
 }
 
+@keyframes introRingSpin {
+  0% {
+    transform: rotate(0deg) scale(.96);
+    opacity: .75;
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.02);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(.96);
+    opacity: .78;
+  }
+}
+
+@keyframes introRingReverse {
+  0% {
+    transform: rotate(0deg) scale(1.08);
+  }
+
+  50% {
+    transform: rotate(-180deg) scale(.94);
+  }
+
+  100% {
+    transform: rotate(-360deg) scale(1.08);
+  }
+}
+
+@keyframes introMarkPop {
+  0% {
+    transform: scale(.9) rotate(-2deg);
+  }
+
+  35% {
+    transform: scale(1.06) rotate(1deg);
+  }
+
+  65% {
+    transform: scale(.97) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(.9) rotate(-2deg);
+  }
+}
+
+@keyframes introGlow {
+  0% {
+    transform: scale(.8);
+    opacity: .6;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: .95;
+  }
+
+  100% {
+    transform: scale(.8);
+    opacity: .7;
+  }
+}
+
+@keyframes introSpark {
+  0% {
+    transform: translate3d(0, 0, 0) scale(.5);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translate3d(3px, -10px, 0) scale(1.05);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translate3d(-4px, 6px, 0) scale(.95);
+    opacity: .45;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(.5);
+    opacity: 0;
+  }
+}
+
 .intro.exit {
   animation: introVanish .55s ease forwards;
 }
@@ -753,21 +851,12 @@ h1 {
 
 @media (max-width: 540px) {
   .intro {
-    padding: 32px;
-    text-align: left;
+    padding: 28px;
+    text-align: center;
   }
 
   .intro-content {
-    gap: 16px;
-  }
-
-  .intro-chip {
-    justify-self: flex-start;
-    letter-spacing: .22em;
-  }
-
-  .intro-progress {
-    margin-left: 0;
+    width: min(240px, 70vw);
   }
 }
 
@@ -777,12 +866,22 @@ h1 {
   .intro::before,
   .intro::after,
   .intro-orb,
-  .intro-progress__bar {
+  .intro-logo__ring,
+  .intro-logo__mark,
+  .intro-logo__glow,
+  .intro-logo__spark {
     animation: none !important;
   }
 
-  .intro-progress__bar {
-    width: 100%;
+  .intro-logo__ring,
+  .intro-logo__mark,
+  .intro-logo__glow,
+  .intro-logo__spark {
+    transform: none !important;
+  }
+
+  .intro-logo__spark {
+    opacity: .55;
   }
 }
 
