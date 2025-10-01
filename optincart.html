@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- =========================================================
+       META / HEAD
+       - Matches base metadata and shared styles
+       ========================================================= -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OptInCart — Variant Confidence for Shopify</title>
+  <meta name="description"
+    content="OptInCart adds a visual variant swatch to the cart button so Shopify shoppers know exactly what they'll receive." />
+  <link rel="icon" href="assets/image/logo.png" />
+
+  <!-- Base site styles -->
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Mobile navigation enhancements -->
+  <link rel="stylesheet" href="assets/mobile-nav.css" />
+
+  <style>
+    /* Page-specific polish */
+    :root {
+      --pin-top: 84px;
+    }
+
+    .hero-app {
+      padding-block: clamp(96px, 16vw, 140px);
+      display: grid;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-app .hero-copy {
+      max-width: 560px;
+    }
+
+    .hero-app h1 {
+      font-size: clamp(48px, 6vw, 64px);
+      margin: 12px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-app p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .hero-app-visual {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: #fff;
+      padding: 22px;
+    }
+
+    .hero-app-visual ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .value-grid .card {
+      height: 100%;
+    }
+
+    .pill-track {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill-track .pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 600;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Intro (re-uses existing animation) -->
+  <div id="intro" class="intro intro--svg" aria-hidden="true">
+    <div class="intro-bg"></div>
+    <svg class="intro-svg" viewBox="0 0 100 100" aria-hidden="true">
+      <circle class="mk mk-ring" cx="50" cy="50" r="47" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="50" y2="96" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="16" y2="18" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="18" />
+      <line class="mk mk-spoke" x1="50" y1="50" x2="84" y2="82" />
+    </svg>
+  </div>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- Shared navigation -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" style="height:28px;width:auto;" />
+        <span>OKY Tech</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">☰</button>
+      <nav id="nav-links" class="nav-links" aria-label="Primary">
+        <a class="link" href="services.html">How We Work</a>
+        <a class="link" href="optincart.html">OptInCart</a>
+        <a class="link" href="about.html">O K Y</a>
+        <a class="link" href="contact.html">Let's Start</a>
+      </nav>
+      <a class="cta" href="contact.html">Start a project</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="section">
+    <div class="container hero-app">
+      <div class="hero-copy">
+        <div class="kicker">OptInCart Shopify app</div>
+        <h1>Variant certainty at the moment of add-to-cart.</h1>
+        <p>
+          OptInCart adds a high-confidence swatch preview directly inside the add-to-cart button. Shoppers see the
+          exact color, size, or style they selected before they checkout, dramatically reducing mis-orders and
+          support tickets.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:16px">
+          <a class="cta" href="contact.html">Request a demo</a>
+          <a class="btn btn-outline" href="mailto:okytechsolutions@gmail.com">Talk to OKY Tech</a>
+        </div>
+      </div>
+      <aside class="hero-app-visual">
+        <strong style="display:block;margin-bottom:8px">What shoppers see</strong>
+        <ul class="list">
+          <li>Variant thumbnail beside the add-to-cart label</li>
+          <li>Instant change when a new option is selected</li>
+          <li>Optional wording tweaks for bundle or gift variants</li>
+        </ul>
+        <p class="muted" style="margin-top:12px">Built for Shopify Online Store 2.0 themes and Checkout Extensibility.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section" id="benefits">
+    <div class="container">
+      <div class="kicker reveal">Why it matters</div>
+      <h2 class="reveal">Clarity converts and calms support queues</h2>
+      <div class="value-grid">
+        <article class="card reveal">
+          <h3>Error-proof add to cart</h3>
+          <p class="muted">Shoppers instantly confirm the exact variant they chose, preventing the classic “wrong color”
+            ticket.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <h3>Confidence unlocks higher AOV</h3>
+          <p class="muted">Merchants pair the swatch with upsell prompts, knowing shoppers trust the primary selection.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <h3>Lightweight install</h3>
+          <p class="muted">Works with any theme that exposes variant change events. No custom Liquid rewrites needed.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="usage">
+    <div class="container">
+      <div class="kicker reveal">How OptInCart runs</div>
+      <h2 class="reveal">Purpose-built for Shopify storefront and checkout</h2>
+      <p class="muted reveal" style="max-width:640px">The app listens for variant changes, pulls the correct image,
+        and injects a branded swatch beside your CTA. Merchants can control copy, fallback states, and analytics hooks
+        from the admin interface.</p>
+      <div class="steps-grid">
+        <article class="card reveal">
+          <h3>1. Install & connect</h3>
+          <p class="muted">Install from the Shopify App Store and approve app embed + cart script blocks.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <h3>2. Map variants</h3>
+          <p class="muted">OptInCart detects variant media automatically. Override or prioritize specific shots per option.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <h3>3. Customize prompts</h3>
+          <p class="muted">Set the confirmation message, choose CTA color accents, and enable cross-sell nudges.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.15s">
+          <h3>4. Track & iterate</h3>
+          <p class="muted">Review conversion uplift and cart error drops in the built-in analytics dashboard.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="section" id="use-cases">
+    <div class="container row">
+      <div class="reveal" style="flex:1">
+        <div class="kicker">Where OptInCart shines</div>
+        <h2>Use cases across verticals</h2>
+        <p class="muted">Every category with look-alike variants benefits from extra clarity. OptInCart keeps product
+          confidence high without slowing the path to checkout.</p>
+        <div class="pill-track">
+          <span class="pill">Fashion & Apparel</span>
+          <span class="pill">Cosmetics</span>
+          <span class="pill">Home Decor</span>
+          <span class="pill">Electronics</span>
+          <span class="pill">Bundles & Kits</span>
+          <span class="pill">Gift Customization</span>
+        </div>
+      </div>
+      <aside class="accent-panel reveal" style="flex:1;min-width:280px">
+        <h3 style="margin:0 0 8px">Key differentiators</h3>
+        <ul class="list">
+          <li>Real-time swatch updates tied to Shopify variant change events</li>
+          <li>Fallback image states when variants are missing media</li>
+          <li>Admin-controlled messaging, analytics, and localization</li>
+          <li>Theme-safe implementation—no Liquid hacks or brittle DOM selectors</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="kicker reveal">FAQ</div>
+      <h2 class="reveal">Answers before you install</h2>
+      <div class="faq-grid">
+        <article class="card reveal">
+          <h3>Does it work with any Shopify theme?</h3>
+          <p class="muted">Yes. OptInCart supports Online Store 2.0 themes out of the box. Older themes work after enabling
+            the app embed and adding one script snippet provided in the admin.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.05s">
+          <h3>Will it slow down my store?</h3>
+          <p class="muted">The swatch loads in under 30ms using CDN-cached variant images. No external libraries are loaded
+            on the storefront.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.1s">
+          <h3>Can I track performance?</h3>
+          <p class="muted">OptInCart surfaces add-to-cart conversion changes, error reduction, and variant selection stats.
+            Export data to GA4 or your analytics tool with one click.</p>
+        </article>
+        <article class="card reveal" style="transition-delay:.15s">
+          <h3>Who maintains the app?</h3>
+          <p class="muted">The OKY Tech team builds and supports OptInCart. Shopify app specialists handle updates, support,
+            and roadmap requests.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container row">
+      <div class="reveal">
+        <div class="kicker">Ready to give shoppers certainty?</div>
+        <h2>Launch OptInCart and cut variant mistakes.</h2>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+          <a class="cta" href="mailto:okytechsolutions@gmail.com">Book onboarding</a>
+          <a class="btn btn-outline" href="contact.html">See how we ship Shopify apps</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="accent-panel">
+          <h3 style="margin:0 0 6px">What we cover in setup</h3>
+          <ul class="list">
+            <li>Theme review + embed configuration</li>
+            <li>Variant media audit and mapping tips</li>
+            <li>Confirmation copy that matches your brand voice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <svg class="footer-wave" viewBox="0 0 1440 40" aria-hidden="true">
+      <path d="M0,24 C240,8 480,40 720,22 C960,4 1200,28 1440,12 L1440,40 L0,40 Z" fill="currentColor" />
+    </svg>
+
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/image/logo.png" alt="OKY Tech logo" class="footer-logo" />
+        <div class="footer-title">OKY Tech</div>
+        <p class="tagline">Code that converts.</p>
+        <button class="copy-email" data-email="okytechsolutions@gmail.com" aria-label="Copy email">okytechsolutions@gmail.com</button>
+        <span class="copy-toast" role="status" aria-live="polite"></span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="services.html">How We Work</a>
+        <a href="optincart.html">OptInCart</a>
+        <a href="about.html">O K Y</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer-actions">
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/oky-tech-solutions-995a73385" aria-label="LinkedIn" class="pill"><img src="assets/image/linkedin.png" alt="" /></a>
+          <a href="https://x.com/Oky_Tech" aria-label="X" class="pill"><img src="assets/image/x.png" alt="" /></a>
+          <a href="https://www.threads.com/@oky_tech" aria-label="Threads" class="pill"><img src="assets/image/threads.png" alt="" /></a>
+          <a href="https://www.instagram.com/oky_tech?igsh=ZzRhcTE1bTN1dHoy" aria-label="Instagram" class="pill"><img src="assets/image/insta.png" alt="" /></a>
+          <a href="#" aria-label="Facebook" class="pill"><img src="assets/image/facebook.png" alt="" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> OKY Tech. All rights reserved.</span>
+    </div>
+    <div class="footer-spotlight" aria-hidden="true"></div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script src="assets/mobile-nav.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const btn = document.querySelector('.copy-email');
+      const toast = document.querySelector('.copy-toast');
+      if (!btn) return;
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.email || btn.textContent.trim());
+          if (toast) toast.textContent = 'Copied ✓';
+          setTimeout(() => toast && (toast.textContent = ''), 1500);
+        } catch (e) { }
+      });
+    })();
+  </script>
+</body>
+
+</html>
